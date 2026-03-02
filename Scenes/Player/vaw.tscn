@@ -40,7 +40,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e2ltl"]
 shader = ExtResource("37_e2ltl")
-shader_parameter/grain_intensity = 0.1
+shader_parameter/grain_intensity = 0.04400000209
 shader_parameter/min_lum = 0.0
 shader_parameter/max_lum = 1.0
 shader_parameter/time_scale = 0.5

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu3pry8s2a8y2"
-path="res://.godot/imported/Vaw_Tileset.png-79cf85ed9b38a4fa8dfb820277afcde6.ctex"
+uid="uid://cp2pbwwwcpbcn"
+path="res://.godot/imported/glyph-lightwave100.png-051b0e8cd02abfbc6e620f59a0453197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Vaw_Tileset.png"
-dest_files=["res://.godot/imported/Vaw_Tileset.png-79cf85ed9b38a4fa8dfb820277afcde6.ctex"]
+source_file="res://Assets/UI/glyph-lightwave100.png"
+dest_files=["res://.godot/imported/glyph-lightwave100.png-051b0e8cd02abfbc6e620f59a0453197.ctex"]
 
 [params]
 

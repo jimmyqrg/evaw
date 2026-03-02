@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu3pry8s2a8y2"
-path="res://.godot/imported/Vaw_Tileset.png-79cf85ed9b38a4fa8dfb820277afcde6.ctex"
+uid="uid://do0cvmoshg4pi"
+path="res://.godot/imported/glyphdirections.png-cb509d68393eccc9619a160722c79d51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Vaw_Tileset.png"
-dest_files=["res://.godot/imported/Vaw_Tileset.png-79cf85ed9b38a4fa8dfb820277afcde6.ctex"]
+source_file="res://Assets/UI/glyphdirections.png"
+dest_files=["res://.godot/imported/glyphdirections.png-cb509d68393eccc9619a160722c79d51.ctex"]
 
 [params]
 
