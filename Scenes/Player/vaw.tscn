@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ohaps7u6r2k0"]
+[gd_scene load_steps=159 format=3 uid="uid://ohaps7u6r2k0"]
 
 [ext_resource type="Texture2D" uid="uid://bcxskdoecc0k1" path="res://Assets/Player/Vaw_Run.png" id="1_1a3vd"]
 [ext_resource type="Script" uid="uid://cy7gomqf157ld" path="res://Scripts/Player/vaw.gd" id="1_hy5rl"]
@@ -939,67 +939,6 @@ size = Vector2(4, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w850c"]
 size = Vector2(4, 6)
 
-[sub_resource type="Animation" id="Animation_s1hrp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/ColorRect:material:shader_parameter/size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI/ColorRect:material:shader_parameter/thickness")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.05]
-}
-
-[sub_resource type="Animation" id="Animation_25jie"]
-resource_name = "shcokawave"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/ColorRect:material:shader_parameter/size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.4),
-"transitions": PackedFloat32Array(1, 0.31864014, 1),
-"update": 0,
-"values": [0.0, 0.5, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI/ColorRect:material:shader_parameter/thickness")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.05, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vl8gu"]
-_data = {
-&"RESET": SubResource("Animation_s1hrp"),
-&"shcokawave": SubResource("Animation_25jie")
-}
-
 [sub_resource type="Gradient" id="Gradient_25jie"]
 offsets = PackedFloat32Array(0.003921569, 0.26666668, 1)
 colors = PackedColorArray(0.65, 0.65, 0.65, 1, 0.4, 0.4, 0.4, 1, 0, 0, 0, 1)
@@ -1038,16 +977,19 @@ collision_mode = 1
 collision_friction = 0.5
 collision_bounce = 0.2
 
-[node name="Vaw" type="CharacterBody2D" unique_id=1178003353 groups=["player"]]
+[node name="Vaw" type="CharacterBody2D" groups=["player"]]
 z_index = 5
+collision_layer = 129
 collision_mask = 15
 script = ExtResource("1_hy5rl")
 
-[node name="Camera" parent="." unique_id=1598410575 instance=ExtResource("2_8aoa4")]
+[node name="Camera" parent="." instance=ExtResource("2_8aoa4")]
+visible = false
 
-[node name="crt" type="CanvasLayer" parent="Camera" unique_id=1733172272]
+[node name="crt" type="CanvasLayer" parent="Camera"]
+visible = false
 
-[node name="ColorRect2" type="ColorRect" parent="Camera/crt" unique_id=392304613]
+[node name="ColorRect2" type="ColorRect" parent="Camera/crt"]
 z_index = -1
 material = SubResource("ShaderMaterial_e2ltl")
 anchors_preset = 8
@@ -1063,20 +1005,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TransitionsLayer" type="CanvasLayer" parent="Camera" unique_id=411131622]
+[node name="TransitionsLayer" type="CanvasLayer" parent="Camera"]
 layer = 99999
+visible = false
 
-[node name="Transitions" parent="Camera/TransitionsLayer" unique_id=1986103913 instance=ExtResource("22_s1hrp")]
+[node name="Transitions" parent="Camera/TransitionsLayer" instance=ExtResource("22_s1hrp")]
 light_mask = 64
 visibility_layer = 4
 position = Vector2(80, 60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/TransitionsLayer" unique_id=466429623]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/TransitionsLayer"]
 visible = false
 position = Vector2(80, 60)
 shape = SubResource("RectangleShape2D_6p8ar")
 
-[node name="ColorRect2" type="ColorRect" parent="Camera/TransitionsLayer" unique_id=136755761]
+[node name="ColorRect2" type="ColorRect" parent="Camera/TransitionsLayer"]
 visible = false
 z_index = 10
 material = SubResource("ShaderMaterial_8ujr2")
@@ -1092,13 +1035,13 @@ offset_bottom = 581.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelTitles" parent="Camera/TransitionsLayer" unique_id=1321273808 instance=ExtResource("21_25jie")]
+[node name="LevelTitles" parent="Camera/TransitionsLayer" instance=ExtResource("21_25jie")]
 position = Vector2(80, 60)
 frame_progress = 0.0
 
-[node name="UI" type="Node2D" parent="." unique_id=1981529907]
+[node name="UI" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=192210780]
+[node name="ColorRect" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_52i0t")
 custom_minimum_size = Vector2(160, 120)
 anchors_preset = 15
@@ -1111,158 +1054,158 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseUI" parent="UI" unique_id=1764108342 instance=ExtResource("4_25jie")]
+[node name="PauseUI" parent="UI" instance=ExtResource("4_25jie")]
 
-[node name="SineIndicator" parent="UI" unique_id=598111918 instance=ExtResource("6_8u1j7")]
+[node name="SineIndicator" parent="UI" instance=ExtResource("6_8u1j7")]
 position = Vector2(-3, -8)
 
-[node name="Lume_Indicator" parent="UI" unique_id=2075838969 instance=ExtResource("7_5s3mi")]
+[node name="Lume_Indicator" parent="UI" instance=ExtResource("7_5s3mi")]
 position = Vector2(2, -8)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=260944178]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_12ev1")
 animation = &"to_sine"
 
-[node name="NormCol" type="CollisionShape2D" parent="." unique_id=610674202]
+[node name="NormCol" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_uvlj0")
 
-[node name="ground_checkerL" type="RayCast2D" parent="." unique_id=1887293819]
+[node name="ground_checkerL" type="RayCast2D" parent="."]
 visible = false
 position = Vector2(-2, 0)
 target_position = Vector2(0, 5)
 collision_mask = 255
 
-[node name="ground_checkerR" type="RayCast2D" parent="." unique_id=2041168972]
+[node name="ground_checkerR" type="RayCast2D" parent="."]
 position = Vector2(2, 0)
 target_position = Vector2(0, 5)
 collision_mask = 255
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1940811190]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox" unique_id=2125220630]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_1d0l2")
 
-[node name="WaveColCheck" type="Area2D" parent="." unique_id=590342197]
+[node name="WaveColCheck" type="Area2D" parent="."]
+collision_layer = 128
 
-[node name="WaveCol" type="CollisionPolygon2D" parent="WaveColCheck" unique_id=1123049349]
+[node name="WaveCol" type="CollisionPolygon2D" parent="WaveColCheck"]
 polygon = PackedVector2Array(-1, -2, -2, -1, -2, 1, -1, 2, 1, 2, 2, 1, 2, -1, 1, -2)
 
-[node name="NoSoftLock" type="Area2D" parent="." unique_id=839784718]
+[node name="NoSoftLock" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 255
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoSoftLock" unique_id=1965754368]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoSoftLock"]
 shape = SubResource("RectangleShape2D_3akl4")
 
-[node name="SensorChecker" type="Area2D" parent="." unique_id=1101893800]
+[node name="SensorChecker" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 76
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorChecker" unique_id=1138234289]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorChecker"]
 shape = SubResource("RectangleShape2D_w850c")
 
-[node name="MusicPlayer" type="Area2D" parent="." unique_id=1457241824]
+[node name="MusicPlayer" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicPlayer" unique_id=908344060]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicPlayer"]
 shape = SubResource("RectangleShape2D_w850c")
 
-[node name="Timers" type="Node" parent="." unique_id=65639340]
+[node name="Timers" type="Node" parent="."]
 
-[node name="Jump Timers" type="Node" parent="Timers" unique_id=175206595]
+[node name="Jump Timers" type="Node" parent="Timers"]
 
-[node name="CoyoteTimer" type="Timer" parent="Timers/Jump Timers" unique_id=758889075]
+[node name="CoyoteTimer" type="Timer" parent="Timers/Jump Timers"]
 wait_time = 0.1
 one_shot = true
 
-[node name="JBufferTimer" type="Timer" parent="Timers/Jump Timers" unique_id=948711280]
+[node name="JBufferTimer" type="Timer" parent="Timers/Jump Timers"]
 wait_time = 0.1
 one_shot = true
 
-[node name="DirChooseTimer" type="Timer" parent="Timers" unique_id=581160494]
+[node name="DirChooseTimer" type="Timer" parent="Timers"]
 wait_time = 0.25
 one_shot = true
 
-[node name="SoftLockTimer" type="Timer" parent="Timers" unique_id=1186285960]
+[node name="SoftLockTimer" type="Timer" parent="Timers"]
 wait_time = 0.075
 one_shot = true
 
-[node name="DeathTimer" type="Timer" parent="Timers" unique_id=1183900601]
+[node name="DeathTimer" type="Timer" parent="Timers"]
 wait_time = 0.9
 one_shot = true
 
-[node name="RespawnTimer" type="Timer" parent="Timers" unique_id=1868243883]
+[node name="RespawnTimer" type="Timer" parent="Timers"]
 wait_time = 0.6
 one_shot = true
 
-[node name="LevelTitleTimer" type="Timer" parent="Timers" unique_id=1210042879]
+[node name="LevelTitleTimer" type="Timer" parent="Timers"]
 wait_time = 2.0
 one_shot = true
 
-[node name="TransitionTimer" type="Timer" parent="Timers" unique_id=264560116]
+[node name="TransitionTimer" type="Timer" parent="Timers"]
 one_shot = true
 
-[node name="ExitTimer" type="Timer" parent="Timers" unique_id=1613360649]
+[node name="ExitTimer" type="Timer" parent="Timers"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1670376432]
-libraries/ = SubResource("AnimationLibrary_vl8gu")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=167934420]
+[node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
 color = Color(0.9607843, 0.93333334, 0.6901961, 1)
 energy = 1.75
 texture = SubResource("GradientTexture2D_25jie")
 texture_scale = 1.75
 
-[node name="SFX" type="Node" parent="." unique_id=678500004]
+[node name="SFX" type="Node" parent="."]
 
-[node name="Under" parent="SFX" unique_id=292410786 instance=ExtResource("23_6p8ar")]
+[node name="Under" parent="SFX" instance=ExtResource("23_6p8ar")]
 
-[node name="walking" type="AudioStreamPlayer" parent="SFX" unique_id=946808856]
+[node name="walking" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("23_vl8gu")
 volume_db = -3.0
 bus = &"SFX"
 parameters/looping = true
 
-[node name="Tentativejump" type="AudioStreamPlayer" parent="SFX" unique_id=664988680]
+[node name="Tentativejump" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("26_pmbmc")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="Death" type="AudioStreamPlayer" parent="SFX" unique_id=747606543]
+[node name="Death" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("27_kh1wn")
 bus = &"SFX"
 
-[node name="HitGround" type="AudioStreamPlayer" parent="SFX" unique_id=467726263]
+[node name="HitGround" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("27_s2klm")
 volume_db = -13.0
 bus = &"SFX"
 
-[node name="SwitchLume" type="AudioStreamPlayer" parent="SFX" unique_id=1510924930]
+[node name="SwitchLume" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("24_odm3q")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="SwitchSine" type="AudioStreamPlayer" parent="SFX" unique_id=1852135200]
+[node name="SwitchSine" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("29_s2klm")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="SwitchLume2" type="AudioStreamPlayer" parent="SFX" unique_id=630228982]
+[node name="SwitchLume2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("30_khic2")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="SwitchSine2" type="AudioStreamPlayer" parent="SFX" unique_id=1905651780]
+[node name="SwitchSine2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("31_8u1j7")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="WalkingParticle" type="GPUParticles2D" parent="." unique_id=1847841606]
+[node name="WalkingParticle" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)
 emitting = false
 amount = 6
@@ -1270,27 +1213,28 @@ lifetime = 0.3
 collision_base_size = 1.1
 process_material = SubResource("ParticleProcessMaterial_s2klm")
 
-[node name="hitgroundparticle" type="GPUParticles2D" parent="." unique_id=1939833692]
+[node name="hitgroundparticle" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)
 amount = 20
 lifetime = 0.6
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_khic2")
 
-[node name="groundhittimer" type="Timer" parent="hitgroundparticle" unique_id=1332827024]
+[node name="groundhittimer" type="Timer" parent="hitgroundparticle"]
 wait_time = 0.3
 one_shot = true
 
-[node name="Loading" type="CanvasLayer" parent="." unique_id=1489629355]
+[node name="Loading" type="CanvasLayer" parent="."]
 layer = 2001
+visible = false
 script = ExtResource("34_imby6")
 
-[node name="Background" type="Sprite2D" parent="Loading" unique_id=1842431504]
+[node name="Background" type="Sprite2D" parent="Loading"]
 z_index = 200
 position = Vector2(79, 62)
 texture = ExtResource("34_5s3mi")
 
-[node name="loading" type="Sprite2D" parent="Loading" unique_id=1031626148]
+[node name="loading" type="Sprite2D" parent="Loading"]
 z_index = 1978
 position = Vector2(80, 60)
 texture = ExtResource("36_imby6")

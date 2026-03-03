@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhfsdif02rwqm"]
+
+[ext_resource type="Script" path="res://Scripts/Tools/level_type_shift.gd" id="1_ry2b3"]
+
+[node name="LevelTypeShift" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_ry2b3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

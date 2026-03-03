@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://b2bgew877g6u"]
+[gd_scene load_steps=47 format=4 uid="uid://b2bgew877g6u"]
 
 [ext_resource type="Script" uid="uid://dynch2fpwoyd7" path="res://Scripts/Lvls/lvl_6.gd" id="1_0tnqr"]
 [ext_resource type="Texture2D" uid="uid://c3txmui8m2di6" path="res://Assets/Backgrounds/tentative backg.png" id="1_1xjb5"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jfr1tyjvl66" path="res://Assets/Interactables/lanternonfire1-8.png" id="27_b4eup"]
 [ext_resource type="Texture2D" uid="uid://ch020mlkb42y0" path="res://Assets/Interactables/lanternonfire1-9.png" id="28_mmacq"]
 [ext_resource type="PackedScene" uid="uid://mrbbxnsowegr" path="res://Scenes/Objects/radio.tscn" id="30_kpo3k"]
+[ext_resource type="PackedScene" uid="uid://bf3rokt0ohign" path="res://Scenes/Tools/level_type_shift.tscn" id="32_j06xe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qxqej"]
 shader = ExtResource("20_urqlq")
@@ -147,6 +148,9 @@ polygon = PackedVector2Array(36, 257, 37, 257, 37, 153, 141, 153, 141, 256, 141,
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0tnqr"]
 polygon = PackedVector2Array(-27, 137, -19, 137, -19, 217, -12, 217, -11, 217, -11, 313, -3, 313, -3, 329, 61, 329, 61, 337, 133, 337, 133, 329, 157, 329, 157, 321, 173, 321, 173, 137, 229, 137, 229, 153, 293, 153, 293, 296, 293, 298, 293, 297, 373, 297, 373, 289, 389, 289, 390, 209, 381, 209, 381, 169, 373, 169, 373, 153, 477, 153, 477, 145, 525, 145, 525, 137, 573, 137, 573, 129, 621, 129, 621, 161, 613, 161, 613, 233, 605, 233, 605, 289, 598, 289, 596, 289, 597, 289, 597, 313, 613, 313, 613, 321, 645, 321, 645, 329, 693, 329, 693, 337, 709, 337, 709, 345, 741, 345, 741, 152, 685, 153, 685, 145, 741, 145, 742, 133, 755, 140, 753, 366, 441, 361, -108, 395, -225, 118, -106, 85)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgdio"]
+size = Vector2(1179, 6)
+
 [node name="Lvl_6" type="Node2D"]
 script = ExtResource("1_0tnqr")
 
@@ -212,6 +216,7 @@ visibility_layer = 3
 position = Vector2(89, 141)
 
 [node name="RadioText" parent="Vaw" instance=ExtResource("10_muw4e")]
+visible = false
 
 [node name="Bubbles" parent="." instance=ExtResource("12_h34hb")]
 position = Vector2(458, 465)
@@ -1748,3 +1753,12 @@ autowrap_mode = 3
 [node name="Radio" parent="." instance=ExtResource("30_kpo3k")]
 position = Vector2(117, 233)
 number = 3
+
+[node name="LevelTypeShift" parent="." instance=ExtResource("32_j06xe")]
+crossing_axis = 1
+higher_type = 2
+lower_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTypeShift"]
+position = Vector2(562.5, 94)
+shape = SubResource("RectangleShape2D_xgdio")
