@@ -987,7 +987,6 @@ script = ExtResource("1_hy5rl")
 visible = false
 
 [node name="crt" type="CanvasLayer" parent="Camera"]
-visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="Camera/crt"]
 z_index = -1
