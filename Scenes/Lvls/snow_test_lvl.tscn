@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bxith6kpuc7d5"]
+[gd_scene format=4 uid="uid://bxith6kpuc7d5"]
 
 [ext_resource type="Texture2D" uid="uid://c3txmui8m2di6" path="res://Assets/Backgrounds/tentative backg.png" id="1_fuhmf"]
 [ext_resource type="Shader" uid="uid://b0w8pius7hsv5" path="res://Scenes/Shaders/crt_filter.gdshader" id="1_jrmk8"]
@@ -137,12 +137,9 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d3fqi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xblg"]
-size = Vector2(583, 5)
+[node name="Node2D" type="Node2D" unique_id=168795472]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1676381120]
 visible = false
 material = SubResource("ShaderMaterial_5xblg")
 anchors_preset = 15
@@ -151,69 +148,69 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="ColorRect"]
+[node name="SubViewport" type="SubViewport" parent="ColorRect" unique_id=532277525]
 size = Vector2i(160, 120)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=102638995]
 position = Vector2(57, 26)
 occluder = SubResource("OccluderPolygon2D_4m64i")
 
-[node name="Tileset" parent="." instance=ExtResource("4_xy4tn")]
+[node name="Tileset" parent="." unique_id=1312503853 instance=ExtResource("4_xy4tn")]
 tile_map_data = PackedByteArray("AAD9/wUAAAAGAAwAAAD+/wUAAAAGAAwAAAD//wUAAAAGAAwAAAAAAAUAAAAGAAwAAAABAAUAAAAGAAwAAAACAAUAAAAGAAwAAAADAAUAAAAGAAwAAAAEAAUAAAAGAAwAAAAFAAUAAAAGAAwAAAAGAAUAAAAGAAwAAAAHAAUAAAAGAAwAAAAIAAUAAAAGAAwAAAAJAAUAAAAGAAwAAAAKAAUAAAAGAAwAAAALAAUAAAAGAAwAAAAMAAUAAAAGAAwAAAANAAUAAAAGAAwAAAAOAAUAAAAGAAwAAAAPAAUAAAAGAAwAAAAQAAUAAAAGAAwAAAARAAUAAAAGAAwAAAASAAUAAAAGAAwAAAATAAUAAAAGAAwAAAAUAAUAAAAGAAwAAAAVAAUAAAAGAAwAAAAWAAUAAAAGAAwAAAAXAAUAAAAGAAwAAAAYAAUAAAAGAAwAAAAZAAUAAAAGAAwAAAAaAAUAAAAGAAwAAAAbAAUAAAAGAAwAAAAcAAUAAAAGAAwAAAAdAAUAAAAGAAwAAAAeAAUAAAAGAAwAAAAfAAUAAAAGAAwAAAAgAAUAAAAGAAwAAAAhAAUAAAAGAAwAAAAiAAUAAAAGAAwAAAAjAAUAAAAGAAwAAAAkAAUAAAAGAAwAAAAlAAUAAAAGAAwAAAAmAAUAAAAGAAwAAAAnAAUAAAAGAAwAAAAoAAUAAAAGAAwAAAApAAUAAAAGAAwAAAAqAAUAAAAGAAwAAAArAAUAAAAGAAwAAAAsAAUAAAAGAAwAAAAtAAUAAAAGAAwAAAAuAAUAAAAGAAwAAAAvAAUAAAAGAAwAAAAwAAUAAAAGAAwAAAAxAAUAAAAGAAwAAAAyAAUAAAAGAAwAAAAzAAUAAAAGAAwAAAA0AAUAAAAGAAwAAAA1AAUAAAAGAAwAAAA2AAUAAAAGAAwAAAA3AAUAAAAGAAwAAAA4AAUAAAAGAAwAAAA=")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1006673058]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=496810048]
 motion_mirroring = Vector2(2, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1317343780]
 position = Vector2(42.5, 78.00006)
 scale = Vector2(3.7700002, 13.006668)
 texture = ExtResource("1_fuhmf")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=820908557]
 motion_scale = Vector2(0.05, 0.05)
 motion_mirroring = Vector2(320, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=49208490]
 material = SubResource("ShaderMaterial_p8sav")
 position = Vector2(56, 0)
 texture = ExtResource("2_f4vp1")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=11282267]
 motion_scale = Vector2(0.15, 0.15)
 motion_mirroring = Vector2(320, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1454543549]
 position = Vector2(56, 0)
 texture = ExtResource("3_ni0u1")
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=624518015]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(320, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=273660377]
 position = Vector2(56, 0)
 texture = ExtResource("4_p8sav")
 
-[node name="Respawn" parent="." instance=ExtResource("1_v8kj3")]
+[node name="Respawn" parent="." unique_id=997271491 instance=ExtResource("1_v8kj3")]
 position = Vector2(48, 32)
 
-[node name="Vaw" parent="." instance=ExtResource("2_crycw")]
+[node name="Vaw" parent="." unique_id=1774699477 instance=ExtResource("2_crycw")]
 position = Vector2(65, 35)
 
-[node name="Background" parent="." instance=ExtResource("3_i2041")]
+[node name="Background" parent="." unique_id=2117214609 instance=ExtResource("3_i2041")]
 visible = false
 position = Vector2(-440, 82)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1621173663]
 position = Vector2(34, -290)
 amount = 2500
 lifetime = 15.0
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 process_material = SubResource("ParticleProcessMaterial_v8kj3")
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=978415486]
 visible = false
 position = Vector2(72, 272)
 amount = 1600
@@ -222,20 +219,20 @@ lifetime = 60.0
 visibility_rect = Rect2(-5000, -5000, 100000, 19000)
 process_material = SubResource("ParticleProcessMaterial_2ltx7")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=757406671]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=34862331]
 material = SubResource("ShaderMaterial_q0ora")
 offset_left = 37.0
 offset_top = 20.0
 offset_right = 77.0
 offset_bottom = 60.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=978562523]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=283845575]
 material = SubResource("ShaderMaterial_k5dds")
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,14 +240,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=395000719]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=608018074]
 position = Vector2(14, -6)
 sprite_frames = SubResource("SpriteFrames_cgtf5")
 frame_progress = 0.38804913
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1957579188]
 visible = false
 material = SubResource("ShaderMaterial_hcmv3")
 offset_left = 104.0
@@ -258,16 +255,13 @@ offset_top = -2.0
 offset_right = 144.0
 offset_bottom = 38.0
 
-[node name="feather" parent="." instance=ExtResource("23_mfnqj")]
+[node name="feather" parent="." unique_id=234321232 instance=ExtResource("23_mfnqj")]
 visibility_layer = 3
 material = SubResource("ShaderMaterial_d3fqi")
 position = Vector2(124, 19)
 
-[node name="LevelTypeShift" parent="." instance=ExtResource("23_5xblg")]
-crossing_axis = 1
+[node name="LevelTypeShift" parent="." unique_id=1710269557 instance=ExtResource("23_5xblg")]
+position = Vector2(65, 24)
+crossing_axis = 0
 higher_type = 1
 lower_type = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTypeShift"]
-position = Vector2(267.5, 21.5)
-shape = SubResource("RectangleShape2D_5xblg")
