@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download Godot 4.5 stable
+      - name: Download Godot 4.6 stable
         run: |
           wget -q https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
           unzip -q Godot_v4.5-stable_linux.x86_64.zip
