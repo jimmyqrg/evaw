@@ -1,0 +1,37 @@
+name: Export Godot Web Build
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Godot 4.5 stable
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+          unzip -q Godot_v4.5-stable_linux.x86_64.zip
+          chmod +x Godot_v4.5-stable_linux.x86_64
+          sudo mv Godot_v4.5-stable_linux.x86_64 /usr/local/bin/godot
+
+      - name: Download Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/4.5.stable
+          wget -q https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
+          unzip -q Godot_v4.5-stable_export_templates.tpz -d /tmp/templates
+          mv /tmp/templates/templates/* ~/.local/share/godot/export_templates/4.5.stable/
+
+      - name: Export Web Build
+        run: |
+          mkdir -p build/web
+          godot --headless --export-release "GameOff2025-Waves" build/web/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web/
